@@ -14,7 +14,7 @@
 #' # forecasts <- read_forecast_dir("path/to/forecasts")
 read_forecast_dir <- function(directory, recursive = FALSE) {
   stopifnot(dir.exists(directory))
-  csv_files <- list.files(directory, pattern = "\.csv$", recursive = recursive, full.names = TRUE)
+  csv_files <- list.files(directory, pattern = "\\.csv$", recursive = recursive, full.names = TRUE)
   if (length(csv_files) == 0) {
     return(tibble::tibble())
   }

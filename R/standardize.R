@@ -34,7 +34,7 @@ standardize_forecast_df <- function(df, file_path = NULL) {
   for (old_name in names(rename_map)) {
     new_name <- rename_map[[old_name]]
     if (old_name %in% names(tbl) && !(new_name %in% names(tbl))) {
-      tbl <- dplyr::rename(tbl, !!rlang::sym(new_name) := .data[[old_name]])
+      tbl <- dplyr::rename(tbl, !!rlang::sym(new_name) := !!rlang::sym(old_name))
     }
   }
 

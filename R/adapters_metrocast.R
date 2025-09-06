@@ -31,7 +31,8 @@ remap_columns_first_match <- function(df, candidates) {
 #' @return tibble with unified columns and coerced types
 #' @examples
 #' # unified <- to_metrocast_schema(df)
-#' to_metrocast_schema <- function(df, file_path = NULL) {
+
+to_metrocast_schema <- function(df, file_path = NULL) {
   tbl <- as_tibble_safe(df)
   tbl <- remap_columns_first_match(tbl, list(
     location = c("location", "geo_value", "county", "hsa", "state"),

@@ -1,0 +1,42 @@
+---
+title: "Metrocast Integration"
+author: "hubtools"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Metrocast Integration}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```r
+library(hubtools)
+```
+
+## Read and standardize forecasts
+
+```r
+hub_df <- read_hub_forecast_dir("path/to/hub-forecasts")
+# Or for metrocast-structured folders:
+# mc_df <- read_metrocast_forecast_dir("path/to/metrocast")
+```
+
+## Observed vs forecast plots
+
+```r
+# p <- plot_dashboard_observed_vs_forecast(observed_df, hub_df, facet_by = "location")
+# print(p)
+```
+
+## Quantile ribbons
+
+```r
+# pq <- plot_dashboard_quantiles(hub_df, observed = observed_df)
+# print(pq)
+```
+
+## Build dashboard series and write CSV
+
+```r
+series <- build_dashboard_series(observed_df, hub_df)
+write_dashboard_series_csv(series, "dashboard_series.csv")
+```

@@ -24,6 +24,9 @@ plot_quantiles <- function(
 
   value_sym <- rlang::sym(value_col)
 
+  base_cols <- unique(c(location_col, date_col, model_col))
+  base_cols <- base_cols[base_cols %in% names(forecast_data)]
+
   fc <- forecast_data %>%
     dplyr::filter(.data[["quantile"]] %in% c(0.05, 0.25, 0.5, 0.75, 0.95)) %>%
     dplyr::mutate(q_label = dplyr::case_when(
@@ -34,7 +37,7 @@ plot_quantiles <- function(
       .data[["quantile"]] == 0.95 ~ "q95",
       TRUE ~ NA_character_
     )) %>%
-    dplyr::select(dplyr::all_of(c(location_col, date_col, model_col)), q_label, value = !!value_sym) %>%
+    dplyr::select(dplyr::any_of(base_cols), q_label, value = !!value_sym) %>%
     tidyr::pivot_wider(names_from = q_label, values_from = value)
 
   p <- ggplot2::ggplot(fc, ggplot2::aes(x = .data[[date_col]])) +

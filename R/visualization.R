@@ -47,7 +47,7 @@ plot_observed_vs_forecast <- function(
     ggplot2::labs(x = "Date", y = "Value", color = if (!is.null(group_col)) group_col else NULL)
 
   if (!is.null(facet)) {
-    p <- p + ggplot2::facet_wrap(rlang::as_formula(paste("~", facet_by)), scales = "free_y")
+    p <- p + ggplot2::facet_wrap(stats::as.formula(paste("~", facet_by)), scales = "free_y")
   }
 
   p

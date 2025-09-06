@@ -2,7 +2,8 @@
 
 #' Adapt GBM outputs (wide-by-quantile) to unified long schema
 #'
-#' Expects columns like: location, target_date, [q0.05, q0.25, q0.5, q0.75, q0.95], and optionally mean/point.
+#' Expects columns like: location, target_date, and wide quantile columns such as
+#' q0.05, q0.25, q0.5, q0.75, q0.95. Optionally includes a mean/point column.
 #'
 #' @param df Tibble from GBM model output
 #' @param model_name Optional model name to assign
