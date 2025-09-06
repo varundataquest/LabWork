@@ -1,0 +1,4 @@
+Package: hubtools
+Title: Getting Started with hubtools
+
+This vignette shows basic usage for reading forecasts, filtering by date or horizon, plotting observed vs forecasts, and evaluating models.
