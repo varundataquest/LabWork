@@ -1,2 +1,4 @@
-Package: hubtools
-Type: Tests
+library(testthat)
+library(hubtools)
+
+test_check("hubtools")
