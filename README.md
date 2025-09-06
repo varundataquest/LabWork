@@ -29,3 +29,18 @@ library(hubtools)
 # Evaluate models
 # results <- evaluate_models(eval_data)
 ```
+
+## Forecast Hub helpers
+
+```r
+# Standardize a directory of Forecast Hub CSVs
+# hub_df <- read_hub_forecast_dir("path/to/hub-forecasts")
+# head(hub_df)
+
+# Plot quantiles with ribbons (optional observed overlay)
+# p <- plot_quantiles(hub_df, observed_data = observed_df)
+# p
+
+# Use theme in your own plots
+# ggplot(df, aes(date, value)) + geom_line() + theme_metrocast()
+```
